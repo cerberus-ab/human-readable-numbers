@@ -1,0 +1,24 @@
+{
+  "name": "human-readable-numbers",
+  "version": "0.9.0",
+  "description": "Print numbers in human readable format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerberus-ab/human-readable-numbers.git"
+  },
+  "keywords": [
+    "human",
+    "readable",
+    "numbers"
+  ],
+  "author": "Antony Belov <cerberus.ab@mail.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cerberus-ab/human-readable-numbers/issues"
+  },
+  "homepage": "https://github.com/cerberus-ab/human-readable-numbers#readme"
+}

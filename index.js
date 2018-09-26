@@ -21,9 +21,9 @@
         '-24': 'y'
     };
     
-    function toHumanString(number) {
-        var e = 3 * Math.floor(number.toExponential().match(/[eE]([\+\-]\d+)$/)[1] / 3);
-        return number / Math.pow(10, e) + prefixes[e];
+    function toHumanString(n) {
+        var e = 3 * Math.floor(Number.parseFloat(n).toExponential().match(/[eE]([\+\-]\d+)$/)[1] / 3);
+        return n / Math.pow(10, e) + prefixes[e];
     }
 
     // define the module as AMD, commonJS or global
