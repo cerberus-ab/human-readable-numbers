@@ -1,7 +1,7 @@
-(function() {
+;(function() {
     
     // known SI prefixes, multiple of 3
-    var prefixes = {
+    var PREFIXES = {
         '24': 'Y',
         '21': 'Z',
         '18': 'E',
@@ -12,7 +12,7 @@
         '3': 'k',
         '0': '',
         '-3': 'm',
-        '-6': '&mu;',
+        '-6': 'µ',
         '-9': 'n',
         '-12': 'p',
         '-15': 'f',
@@ -21,20 +21,34 @@
         '-24': 'y'
     };
     
-    function toHumanString(n) {
-        var e = 3 * Math.floor(Number.parseFloat(n).toExponential().match(/[eE]([\+\-]\d+)$/)[1] / 3);
-        return n / Math.pow(10, e) + prefixes[e];
+    function getExponent(n) {
+        return Number.parseFloat(n).toExponential().match(/[eE]([\+\-]\d+)$/)[1];
     }
+    
+    function roundSignificand(s) {
+        // expects the significand in range [1..1000)
+        return parseFloat(s.toPrecision(3));
+    }
+    
+    function toHumanString(n) {
+        var e = 3 * Math.floor(getExponent(n) / 3);
+        return roundSignificand(n / Math.pow(10, e)) + PREFIXES[e];
+    }
+    
+    // the module exports
+    var HRNumbers = {
+        toHumanString: toHumanString
+    };
 
     // define the module as AMD, commonJS or global
     if (typeof define == 'function' && define.amd) {
         define([], function() {
-            return toHumanString;
+            return HRNumbers;
         });
     } else if (typeof exports != 'undefined') {
-        exports = module.exports = toHumanString;
+        exports = module.exports = HRNumbers;
     } else {
-        this.toHumanString = toHumanString;
+        this.HRNumbers = HRNumbers;
     }
 
-}).call(this);
+}.call(this));
