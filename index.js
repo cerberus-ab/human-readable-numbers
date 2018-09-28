@@ -31,7 +31,7 @@
     }
     
     function toHumanString(n) {
-        var e = 3 * Math.floor(getExponent(n) / 3);
+        var e = Math.min(3 * Math.floor(getExponent(n) / 3), 24);
         return roundSignificand(n / Math.pow(10, e)) + PREFIXES[e];
     }
     

@@ -27,7 +27,8 @@ describe('Human readable numbers specification', () => {
             '129500000': '130M',
             '-30': '-30',
             '-9500': '-9.5k',
-            '-17e-10': '-1.7n'
+            '-17e-10': '-1.7n',
+            '4.567e+27': '4570Y'
         };
         for (let n in cases) {
             it(`${n} should be ${cases[n]}`, () => {
