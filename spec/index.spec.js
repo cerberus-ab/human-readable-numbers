@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const HRNumbers = require('../index');
+const HRNumbers = require('../src/index');
 
 describe('Human readable numbers specification', () => {
     
