@@ -61,4 +61,4 @@ typings/
 .next
 
 # build
-dist
+index.js
