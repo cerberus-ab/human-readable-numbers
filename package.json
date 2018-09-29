@@ -9,7 +9,7 @@
     "preversion": "npm test",
     "version": "npm run build",
     "postversion": "git push && git push --tags && rm -rf ./dist",
-    "release:patch": "npm version patch -m \"Upgrade to %s\" && npm publish"
+    "release:patch": "npm version patch -m \"Upgrade to %s [ci skip]\" && npm publish"
   },
   "repository": {
     "type": "git",
