@@ -2,14 +2,14 @@
 Print numbers in human readable format according to [SI prefixes](https://physics.nist.gov/cuu/Units/prefixes.html) except *hecto*, *deka*, *deci* and *centi*.
 
 ## Installation
-In a browser:
-```html
-<script src="dist/index.min.js"></script>
-```
-
 Using npm:
 ```bash
 $ npm i --save human-readable-numbers
+```
+
+In a browser:
+```html
+<script src="dist/index.min.js"></script>
 ```
 
 In node.js:
