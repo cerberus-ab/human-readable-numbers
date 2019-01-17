@@ -28,7 +28,8 @@ describe('Human readable numbers specification', () => {
             '-30': '-30',
             '-9500': '-9.5k',
             '-17e-10': '-1.7n',
-            '4.567e+27': '4570Y'
+            '4.567e+27': '4570Y',
+            '-4.1359030627651384e-25': '-0.414y'
         };
         for (let n in cases) {
             it(`${n} should be ${cases[n]}`, () => {
