@@ -22,23 +22,20 @@
     };
     
     function getExponent(n) {
-        n = Number.parseFloat(n);
         if (n === 0) {
             return 0;
-        } else {
-            return Math.floor(Math.log10(Math.abs(n)));
         }
+        return Math.floor(Math.log10(Math.abs(n)));
     }
     
-    function roundSignificand(s) {
-        // expects the significand in range [1..1000)
-        return parseFloat(s.toPrecision(3));
+    function precise(n) {
+        return Number.parseFloat(n.toPrecision(3));
     }
     
-    function toHumanString(n) {
-        n=roundSignificand(parseFloat(n));
+    function toHumanString(sn) {
+        var n = precise(Number.parseFloat(sn));
         var e = Math.max(Math.min(3 * Math.floor(getExponent(n) / 3), 24), -24);
-        return roundSignificand(n / Math.pow(10, e)).toString() + PREFIXES[e];
+        return precise(n / Math.pow(10, e)).toString() + PREFIXES[e];
     }
     
     // the module exports
