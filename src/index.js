@@ -22,7 +22,12 @@
     };
     
     function getExponent(n) {
-        return Number.parseFloat(n).toExponential().match(/[eE]([\+\-]\d+)$/)[1];
+        n = Number.parseFloat(n);
+        if (n === 0) {
+            return 0;
+        } else {
+            return Math.floor(Math.log10(Math.abs(n)));
+        }
     }
     
     function roundSignificand(s) {
@@ -31,8 +36,9 @@
     }
     
     function toHumanString(n) {
+        n=roundSignificand(parseFloat(n));
         var e = Math.max(Math.min(3 * Math.floor(getExponent(n) / 3), 24), -24);
-        return roundSignificand(n / Math.pow(10, e)) + PREFIXES[e];
+        return roundSignificand(n / Math.pow(10, e)).toString() + PREFIXES[e];
     }
     
     // the module exports
