@@ -1,6 +1,6 @@
 {
   "name": "human-readable-numbers",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Print numbers in human readable format.",
   "main": "dist/index.min.js",
   "scripts": {
