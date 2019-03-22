@@ -11,6 +11,7 @@ describe('Human readable numbers specification', () => {
         });
     });
     
+    /** TODO: add long prefix support */
     describe('toHumanString: conversion cases', () => {
         let cases = {
             '0': '0',
@@ -37,9 +38,25 @@ describe('Human readable numbers specification', () => {
             '0.99999999999999988897769753748435': '1',
             '1.1102230246251565404236316680908e-16': '111a'
         };
+
+        /** TODO: add more cases */
+        let cases_long = {
+            '0': '0',
+            '120': '120',
+            '5000': '5 Thousand',
+            '1800000': '1.8 Million',
+            '35e+13': '350 Trillion',
+            '1.5e+24': '1.5 Septillion',
+        };
         for (let n in cases) {
             it(`${n} should be ${cases[n]}`, () => {
-                assert.strictEqual(HRNumbers.toHumanString(n), cases[n]);
+                assert.strictEqual(HRNumbers.toHumanString(false, n), cases[n]);
+            });
+        }
+
+        for (let n in cases_long) {
+            it(`${n} should be ${cases_long[n]}`, () => {
+                assert.strictEqual(HRNumbers.toHumanString(true, n), cases_long[n]);
             });
         }
     });
